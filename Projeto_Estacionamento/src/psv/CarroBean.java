@@ -13,14 +13,7 @@ public class CarroBean {
 
     public CarroBean() {
     }
-
-    public CarroBean(String placa, String cor, String descricao) {
-        this.placa = placa;
-        this.cor = cor;
-        this.descricao = descricao;
-    }
-    
-        
+       
     //Criar os métodos getters e setters - alt+insert
 
     public String getPlaca() {
