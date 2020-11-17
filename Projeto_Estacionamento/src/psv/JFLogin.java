@@ -134,6 +134,8 @@ public class JFLogin extends javax.swing.JFrame {
             txtSenha.setText("");
             txtUsuario.grabFocus();
         }
+        
+        Conexao.fecharConexao(con);
 
 
     }//GEN-LAST:event_btnEntrarActionPerformed

@@ -25,9 +25,7 @@ public class UsuarioDAO {
     
     public boolean validarUsuario(UsuarioBean usuario){
         
-        boolean autenticado = false;
-        
-        String sql = "SELECT usuario, senha FROM tbUsuario WHERE usuario=? and senha=?";
+       String sql = "SELECT usuario, senha FROM tbUsuario WHERE usuario=? and senha=?";
         
         try {
             
