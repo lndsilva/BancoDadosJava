@@ -111,30 +111,34 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-
-        Connection con = Conexao.abrirConexao();
-
-        UsuarioDAO ud = new UsuarioDAO(con);
-
-        String usuario = txtUsuario.getText().toString();
-        String senha = txtSenha.getText().toString();
-
-        UsuarioBean ub = new UsuarioBean(usuario, senha);
-
-        if (ud.validarUsuario(ub)) {
-            JFCarro jFCarro = new JFCarro();
-            jFCarro.setVisible(true);
-            this.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Usuário ou senha incorretos!!!",
-                    "Sistema",
-                    JOptionPane.ERROR_MESSAGE);
-            txtUsuario.setText("");
-            txtSenha.setText("");
-            txtUsuario.grabFocus();
-        }
         
+            Connection con = Conexao.abrirConexao();
+            try {
+
+            UsuarioDAO ud = new UsuarioDAO(con);
+
+            String usuario = txtUsuario.getText().toString();
+            String senha = txtSenha.getText().toString();
+
+            UsuarioBean ub = new UsuarioBean(usuario, senha);
+
+            if (ud.validarUsuario(ub)) {
+                JFCarro jFCarro = new JFCarro();
+                jFCarro.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Usuário ou senha incorretos!!!",
+                        "Sistema",
+                        JOptionPane.ERROR_MESSAGE);
+                txtUsuario.setText("");
+                txtSenha.setText("");
+                txtUsuario.grabFocus();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao conectar com o banco de dados");
+        }
+
         Conexao.fecharConexao(con);
 
 

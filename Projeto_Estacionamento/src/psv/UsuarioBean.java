@@ -3,10 +3,13 @@ package psv;
 public class UsuarioBean {
     
     private String usuario;
-    private String senha;
+    private String senha;   
+
+    public UsuarioBean() {
+    } 
 
     public UsuarioBean(String usuario, String senha) {
-        this.usuario = usuario;
+        this.usuario = usuario;      
         this.senha = senha;
     }
 
